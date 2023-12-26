@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy7t0q566lhxg"]
+
+[ext_resource type="Script" path="res://addons/godot_tabs/ObjectsTabs.gd" id="1_7g57l"]
+
+[node name="ObjectsTabs" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+drag_to_rearrange_enabled = true
+script = ExtResource("1_7g57l")
+
+[node name="+" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="+"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Name of the new Tab :"
+
+[node name="LineEdit" type="LineEdit" parent="+"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.0
+
+[node name="AddButton" type="Button" parent="+"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Add"
+
+[node name="ErrorLabel" type="Label" parent="+"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0, 0, 1)
+
+[connection signal="active_tab_rearranged" from="." to="." method="_on_active_tab_rearranged"]
+[connection signal="tab_selected" from="." to="." method="_on_tab_selected"]
+[connection signal="pressed" from="+/AddButton" to="." method="_on_add_button_pressed"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://blwhwqvbfrywd"]
+
+[ext_resource type="Script" path="res://addons/godot_tabs/TabContent.gd" id="1_erlo1"]
+[ext_resource type="PackedScene" uid="uid://dy6ss7u7ftmc2" path="res://addons/godot_tabs/ObjectForm.tscn" id="2_npdsx"]
+
+[node name="TabContent" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+script = ExtResource("1_erlo1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="FilterLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Filter objects"
+clear_button_enabled = true
+
+[node name="RemoveTabButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Delete this tab"
+
+[node name="RenameTabButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Rename this tab"
+
+[node name="AddFormButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Add object"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+
+[node name="NewObjectPanelContainer" type="PanelContainer" parent="VBoxContainer/ScrollContainer/HFlowContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer/HFlowContainer/NewObjectPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HFlowContainer/NewObjectPanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" parent="VBoxContainer/ScrollContainer/HFlowContainer/NewObjectPanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_npdsx")]
+layout_mode = 2
+
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/FilterLineEdit" to="." method="_on_filter_line_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RemoveTabButton" to="." method="_on_remove_tab_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RenameTabButton" to="." method="_on_rename_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AddFormButton" to="." method="_on_add_form_button_pressed"]
+[connection signal="closed" from="VBoxContainer/ScrollContainer/HFlowContainer/NewObjectPanelContainer/MarginContainer/VBoxContainer/GridContainer" to="." method="_on_close_button_pressed"]
+[connection signal="validated" from="VBoxContainer/ScrollContainer/HFlowContainer/NewObjectPanelContainer/MarginContainer/VBoxContainer/GridContainer" to="." method="_on_add_object_button_pressed"]

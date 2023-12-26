@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy6ss7u7ftmc2"]
+
+[ext_resource type="Script" path="res://addons/godot_tabs/ObjectForm.gd" id="1_s66sv"]
+[ext_resource type="Script" path="res://addons/godot_tabs/CanReceiveFilePath.gd" id="2_sl12a"]
+
+[node name="ObjectForm" type="GridContainer"]
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 2
+script = ExtResource("1_s66sv")
+
+[node name="FileLabel" type="Label" parent="."]
+layout_mode = 2
+text = "File:"
+
+[node name="FileLineEdit" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("2_sl12a")
+
+[node name="Control" type="Control" parent="." groups=["godot_tabs_error"]]
+visible = false
+layout_mode = 2
+
+[node name="ErrorFile" type="Label" parent="." groups=["godot_tabs_error"]]
+visible = false
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Name: 
+"
+
+[node name="NameLineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+
+[node name="ImageLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Image:"
+
+[node name="ImageLineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+script = ExtResource("2_sl12a")
+
+[node name="Control2" type="Control" parent="." groups=["godot_tabs_error"]]
+visible = false
+layout_mode = 2
+
+[node name="ErrorImage" type="Label" parent="." groups=["godot_tabs_error"]]
+visible = false
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 2
+text = "Cancel"
+
+[node name="ValidateObjectButton" type="Button" parent="."]
+layout_mode = 2
+text = "Validate"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="ValidateObjectButton" to="." method="_on_validate_object_button_pressed"]

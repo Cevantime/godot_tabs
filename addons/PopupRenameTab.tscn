@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://biuxg340uaghj"]
+
+[ext_resource type="Script" path="res://addons/godot_tabs/PopupRenameTab.gd" id="1_y8k8k"]
+
+[node name="PopupRenameTab" type="Window"]
+position = Vector2i(0, 36)
+size = Vector2i(300, 150)
+always_on_top = true
+popup_window = true
+script = ExtResource("1_y8k8k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -29.0
+offset_right = 122.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Enter the new name of the tab :"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ValidateButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Validate"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="VBoxContainer/ValidateButton" to="." method="_on_validate_button_pressed"]
