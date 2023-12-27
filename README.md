@@ -43,6 +43,14 @@ Then you will be able de access your scenes and incorporate them in other scenes
 https://github.com/Cevantime/godot_tabs/assets/5015561/e7e59e36-b1b4-4b6e-b067-5fed46506be1
 
 
+Features
+---------
+
+ - Creation of tabs of scenes in the bottom panel
+ - Drag and drop scenes from file system to make shortcuts in tabs
+ - Generate or refresh thumbnails in one click
+ - Edit your shortcuts (you can give name custom names)
+ - Supports refactoring : shortcuts are still valid when scenes are moved in the filesystem
 
 Warning
 --------
