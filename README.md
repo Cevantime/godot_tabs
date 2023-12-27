@@ -52,7 +52,8 @@ Features
  - Edit your shortcuts (you can give name custom names)
  - Supports refactoring : shortcuts are still valid when scenes are moved in the filesystem
 
-Warning
---------
+Warning and recommendations
+---------------------------
 
-This project is in his very first iterations and may contain bugs and quirks. Please open an issue if you encounter any problem or want to make proposals.
+ - This project is in his very first iterations and may contain bugs and quirks. Please open an issue if you encounter any problem or want to make proposals.
+ - Data are stored in a `addons/godot_tabs/data.json file that is created and updated on the fly. If you work with a team and don't want to share your tabs, just gitignore it.
