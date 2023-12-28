@@ -36,7 +36,7 @@ You can then create as many tabs as you wish and fill them with your scene short
 
 
 
-Then you will be able de access your scenes and incorporate them in other scenes using a simple drag and drop.
+Then you will be able to access your scenes and incorporate them in other scenes using a simple drag and drop.
 
 
 
@@ -49,11 +49,11 @@ Features
  - Creation of tabs of scenes in the bottom panel
  - Drag and drop scenes from file system to make shortcuts in tabs
  - Generate or refresh thumbnails in one click
- - Edit your shortcuts (you can give name custom names)
+ - Edit your shortcuts (you can give them custom names)
  - Supports refactoring : shortcuts are still valid when scenes are moved in the filesystem
 
 Warning and recommendations
 ---------------------------
 
  - This project is in his very first iterations and may contain bugs and quirks. Please open an issue if you encounter any problem or want to make proposals.
- - Data are stored in a `addons/godot_tabs/data.json file that is created and updated on the fly. If you work with a team and don't want to share your tabs, just gitignore it.
+ - Data are stored in a `addons/godot_tabs/data.json` file that is created and updated on the fly. If you work with a team and don't want to share your tabs, just gitignore it.
